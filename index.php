@@ -48,6 +48,7 @@
     </div>
 
     <!-- Add Modal -->
+
     <div class="container my-3">
         <button type="button" class="btn btn-primary" id="addNoteButton">
             Add Note
@@ -64,7 +65,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- <input type="hidden" name="srnoEdit" id="srnoEdit"> -->
+                        <!-- <input type="hidden" name="srnoAdd" id="srnoAdd"> -->
                         <div class="mb-3">
                             <label for="addTitle" class="form-label">Title</label>
                             <input type="text" class="form-control" id="titleAdd" name="titleAdd" aria-describedby="emailHelp">
@@ -108,7 +109,7 @@
                     <td>" . $row['TITLE'] . "</td>
                     <td>" . $row['DESCRIPTION'] . "</td>
                     <td>" . $row['TIMESTAMP'] . "</td>
-                    <td>" . "<button id=" . $row['SRNO'] . " class='edit btn btn-light'>Edit</button> <button id=d" . $row['SRNO'] . " class='delete btn btn-light'>Delete</button>" . "</td>
+                    <td>" . "<button id=" . $row['SRNO'] . " class='edit btn btn-light'>Edit</button>" . "<form action='/iNotebook/index.php' method='POST'><input type='hidden' name='srnoDelete' id='srnoDelete' value='" . $row['SRNO'] . "'><button type='submit' id=d" . $row['SRNO'] . " class='delete btn btn-light'>Delete</button></form>" . "</td>
                     </tr>";
                     $srnum++;
                 }
@@ -138,12 +139,10 @@
         let a = null;
         Array.from(deletes).forEach((element) => {
             element.addEventListener("click", (e) => {
-                let sno = e.target.id.substring(1);
-                if (confirm("Do you really want to delete this task?")) {
-                    window.location = `/iNotebook/index.php?delete=${sno}`;
-                } else {
-                    console.log("No");
-                }
+                // let sno = e.target.id.substring(1);
+                // console.log(sno);
+
+                // confirm("Do you really want to delete Note?")
             });
         });
 
