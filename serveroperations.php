@@ -50,8 +50,8 @@
             
         } else {
 
-            $title = $_POST['title'];
-            $description = $_POST['desc'];
+            $title = $_POST['titleAdd'];
+            $description = $_POST['descAdd'];
 
             $sql = "INSERT INTO `notes` (`SRNO`, `TITLE`, `DESCRIPTION`, `TIMESTAMP`) VALUES (NULL, '$title', '$description', current_timestamp());";
             $result = mysqli_query($con, $sql);
